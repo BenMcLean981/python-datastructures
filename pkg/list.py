@@ -1,14 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import Iterator
+from typing import Generic, Iterator, TypeVar
+
+T = TypeVar("T")
 
 
-class List(ABC):
+class List(ABC, Generic[T]):
     """
     Abstract base class describing common list methods
     """
 
     @abstractmethod
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> Iterator[T]:
         pass
 
     @abstractmethod
@@ -32,11 +34,11 @@ class List(ABC):
         pass
 
     @abstractmethod
-    def __getitem__(self, key: int) -> object:
+    def __getitem__(self, key: int) -> T:
         pass
 
     @abstractmethod
-    def __setitem__(self, key: int, new_value: object) -> None:
+    def __setitem__(self, key: int, new_value: T) -> None:
         pass
 
     @abstractmethod
@@ -44,5 +46,5 @@ class List(ABC):
         pass
 
     @abstractmethod
-    def add(self, item: object) -> None:
+    def add(self, item: T) -> None:
         """Add item to list"""

@@ -2,7 +2,7 @@ import pytest
 from pkg.doubly_linked_list import DoublyLinkedList
 
 
-def make_example_list():
+def make_example_list() -> DoublyLinkedList[int]:
     """
     Helper to setup doublyLinkedList
     """
